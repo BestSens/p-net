@@ -2953,6 +2953,7 @@ struct pnet
    volatile uint32_t scheduler_timeout_free;
    os_mutex_t * scheduler_timeout_mutex;
    uint32_t scheduler_tick_interval; /* microseconds */
+   uint32_t scheduler_previous_time;
 
    /********** CMDEV **********/
 
