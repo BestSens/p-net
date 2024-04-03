@@ -168,25 +168,21 @@ configure_file (
 # Add platform-dependent targets early, so they can be configured by
 # platform
 add_library(profinet "")
-add_executable(pn_dev "")
-
-if (PNET_OPTION_DRIVER_ENABLE)
-  include(${CMAKE_CURRENT_SOURCE_DIR}/src/drivers/drivers.cmake)
-endif ()
+# add_executable(pn_dev "")
 
 if (CMAKE_PROJECT_NAME STREQUAL PROFINET AND BUILD_TESTING)
   add_executable(pf_test "")
 endif()
 
 # Platform configuration
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/${CMAKE_SYSTEM_NAME}.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/SealDOT.cmake)
 
 generate_export_header(profinet
   BASE_NAME pnet
   EXPORT_FILE_NAME ${PROFINET_BINARY_DIR}/include/pnet_export.h
   )
 
-set_target_properties (profinet pn_dev
+set_target_properties (profinet
   PROPERTIES
   C_STANDARD 99
   )
@@ -207,27 +203,8 @@ target_include_directories(profinet
 
 target_link_libraries(profinet PUBLIC osal)
 
-install (
-  TARGETS profinet
-  EXPORT ProfinetConfig
-  DESTINATION lib
-  )
-
-install(
-  EXPORT ProfinetConfig
-  DESTINATION cmake
-  )
-
-install (FILES
-  include/pnet_api.h
-  ${PROFINET_BINARY_DIR}/include/pnet_export.h
-  ${PROFINET_BINARY_DIR}/include/pnet_options.h
-  ${PROFINET_BINARY_DIR}/include/pnet_version.h
-  DESTINATION include
-  )
-
 add_subdirectory (src)
-add_subdirectory (samples/pn_dev)
+# add_subdirectory (sample_app)
 
 if (CMAKE_PROJECT_NAME STREQUAL PROFINET AND BUILD_TESTING)
   add_subdirectory (test)
