@@ -194,7 +194,6 @@ target_include_directories(profinet
   $<BUILD_INTERFACE:${PROFINET_SOURCE_DIR}/include>
   $<BUILD_INTERFACE:${PROFINET_BINARY_DIR}/include>
   $<INSTALL_INTERFACE:include>
-  PRIVATE
   ${PROFINET_BINARY_DIR}/src
   src
   src/common

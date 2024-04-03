@@ -14,7 +14,7 @@
 #*******************************************************************/
 
 target_include_directories(profinet
-  PRIVATE
+  PUBLIC
   src/ports/SealDOT
   )
 
