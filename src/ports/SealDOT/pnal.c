@@ -37,14 +37,14 @@ int pnal_set_ip_suite (
    const char * hostname,
    bool permanent)
 {
-   ip_addr_t ip_addr;
-   ip_addr_t ip_mask;
-   ip_addr_t ip_gw;
+   // ip_addr_t ip_addr;
+   // ip_addr_t ip_mask;
+   // ip_addr_t ip_gw;
 
-   ip_addr.addr = htonl (*p_ipaddr);
-   ip_mask.addr = htonl (*p_netmask);
-   ip_gw.addr = htonl (*p_gw);
-   netif_set_addr (netif_default, &ip_addr, &ip_mask, &ip_gw);
+   // ip_addr.addr = htonl (*p_ipaddr);
+   // ip_mask.addr = htonl (*p_netmask);
+   // ip_gw.addr = htonl (*p_gw);
+   // netif_set_addr (netif_default, &ip_addr, &ip_mask, &ip_gw);
 
    return 0;
 }
